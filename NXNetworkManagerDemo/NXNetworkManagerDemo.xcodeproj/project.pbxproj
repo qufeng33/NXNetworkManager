@@ -1,0 +1,618 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		6A9DCF7B738D4DA33081ADBE /* libPods-NXNetworkManagerDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B99F2369D93D3CCCDE371DA0 /* libPods-NXNetworkManagerDemo.a */; };
+		88FCAA1E1CFF17D90089A459 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 88FCAA1D1CFF17D90089A459 /* main.m */; };
+		88FCAA211CFF17D90089A459 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 88FCAA201CFF17D90089A459 /* AppDelegate.m */; };
+		88FCAA241CFF17D90089A459 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88FCAA231CFF17D90089A459 /* ViewController.m */; };
+		88FCAA271CFF17D90089A459 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 88FCAA251CFF17D90089A459 /* Main.storyboard */; };
+		88FCAA291CFF17D90089A459 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 88FCAA281CFF17D90089A459 /* Assets.xcassets */; };
+		88FCAA2C1CFF17D90089A459 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 88FCAA2A1CFF17D90089A459 /* LaunchScreen.storyboard */; };
+		88FCAA371CFF17D90089A459 /* NXNetworkManagerDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 88FCAA361CFF17D90089A459 /* NXNetworkManagerDemoTests.m */; };
+		88FCAA421CFF17D90089A459 /* NXNetworkManagerDemoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 88FCAA411CFF17D90089A459 /* NXNetworkManagerDemoUITests.m */; };
+		88FCAA521CFF1B930089A459 /* NXNetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 88FCAA511CFF1B930089A459 /* NXNetworkManager.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		88FCAA331CFF17D90089A459 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 88FCAA111CFF17D90089A459 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 88FCAA181CFF17D90089A459;
+			remoteInfo = NXNetworkManagerDemo;
+		};
+		88FCAA3E1CFF17D90089A459 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 88FCAA111CFF17D90089A459 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 88FCAA181CFF17D90089A459;
+			remoteInfo = NXNetworkManagerDemo;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		2532000B60DAAB98FE42CEAC /* Pods-NXNetworkManagerDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NXNetworkManagerDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-NXNetworkManagerDemo/Pods-NXNetworkManagerDemo.release.xcconfig"; sourceTree = "<group>"; };
+		321FC49BB0DEA29EEB070815 /* Pods-NXNetworkManagerDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NXNetworkManagerDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NXNetworkManagerDemo/Pods-NXNetworkManagerDemo.debug.xcconfig"; sourceTree = "<group>"; };
+		88FCAA191CFF17D90089A459 /* NXNetworkManagerDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NXNetworkManagerDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		88FCAA1D1CFF17D90089A459 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		88FCAA1F1CFF17D90089A459 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		88FCAA201CFF17D90089A459 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		88FCAA221CFF17D90089A459 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		88FCAA231CFF17D90089A459 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		88FCAA261CFF17D90089A459 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		88FCAA281CFF17D90089A459 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		88FCAA2B1CFF17D90089A459 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		88FCAA2D1CFF17D90089A459 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		88FCAA321CFF17D90089A459 /* NXNetworkManagerDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NXNetworkManagerDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		88FCAA361CFF17D90089A459 /* NXNetworkManagerDemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NXNetworkManagerDemoTests.m; sourceTree = "<group>"; };
+		88FCAA381CFF17D90089A459 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		88FCAA3D1CFF17D90089A459 /* NXNetworkManagerDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NXNetworkManagerDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		88FCAA411CFF17D90089A459 /* NXNetworkManagerDemoUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NXNetworkManagerDemoUITests.m; sourceTree = "<group>"; };
+		88FCAA431CFF17D90089A459 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		88FCAA501CFF1B930089A459 /* NXNetworkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NXNetworkManager.h; sourceTree = "<group>"; };
+		88FCAA511CFF1B930089A459 /* NXNetworkManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NXNetworkManager.m; sourceTree = "<group>"; };
+		B99F2369D93D3CCCDE371DA0 /* libPods-NXNetworkManagerDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-NXNetworkManagerDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		88FCAA161CFF17D90089A459 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6A9DCF7B738D4DA33081ADBE /* libPods-NXNetworkManagerDemo.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		88FCAA2F1CFF17D90089A459 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		88FCAA3A1CFF17D90089A459 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		88FCAA101CFF17D90089A459 = {
+			isa = PBXGroup;
+			children = (
+				88FCAA4F1CFF1B930089A459 /* NXNetworkManager */,
+				88FCAA1B1CFF17D90089A459 /* NXNetworkManagerDemo */,
+				88FCAA351CFF17D90089A459 /* NXNetworkManagerDemoTests */,
+				88FCAA401CFF17D90089A459 /* NXNetworkManagerDemoUITests */,
+				88FCAA1A1CFF17D90089A459 /* Products */,
+				BF4EEFEDAB769189D3FDEA6D /* Pods */,
+				A4D41E49675E8BB18B98C1D7 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		88FCAA1A1CFF17D90089A459 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				88FCAA191CFF17D90089A459 /* NXNetworkManagerDemo.app */,
+				88FCAA321CFF17D90089A459 /* NXNetworkManagerDemoTests.xctest */,
+				88FCAA3D1CFF17D90089A459 /* NXNetworkManagerDemoUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		88FCAA1B1CFF17D90089A459 /* NXNetworkManagerDemo */ = {
+			isa = PBXGroup;
+			children = (
+				88FCAA1F1CFF17D90089A459 /* AppDelegate.h */,
+				88FCAA201CFF17D90089A459 /* AppDelegate.m */,
+				88FCAA221CFF17D90089A459 /* ViewController.h */,
+				88FCAA231CFF17D90089A459 /* ViewController.m */,
+				88FCAA251CFF17D90089A459 /* Main.storyboard */,
+				88FCAA281CFF17D90089A459 /* Assets.xcassets */,
+				88FCAA2A1CFF17D90089A459 /* LaunchScreen.storyboard */,
+				88FCAA2D1CFF17D90089A459 /* Info.plist */,
+				88FCAA1C1CFF17D90089A459 /* Supporting Files */,
+			);
+			path = NXNetworkManagerDemo;
+			sourceTree = "<group>";
+		};
+		88FCAA1C1CFF17D90089A459 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				88FCAA1D1CFF17D90089A459 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		88FCAA351CFF17D90089A459 /* NXNetworkManagerDemoTests */ = {
+			isa = PBXGroup;
+			children = (
+				88FCAA361CFF17D90089A459 /* NXNetworkManagerDemoTests.m */,
+				88FCAA381CFF17D90089A459 /* Info.plist */,
+			);
+			path = NXNetworkManagerDemoTests;
+			sourceTree = "<group>";
+		};
+		88FCAA401CFF17D90089A459 /* NXNetworkManagerDemoUITests */ = {
+			isa = PBXGroup;
+			children = (
+				88FCAA411CFF17D90089A459 /* NXNetworkManagerDemoUITests.m */,
+				88FCAA431CFF17D90089A459 /* Info.plist */,
+			);
+			path = NXNetworkManagerDemoUITests;
+			sourceTree = "<group>";
+		};
+		88FCAA4F1CFF1B930089A459 /* NXNetworkManager */ = {
+			isa = PBXGroup;
+			children = (
+				88FCAA501CFF1B930089A459 /* NXNetworkManager.h */,
+				88FCAA511CFF1B930089A459 /* NXNetworkManager.m */,
+			);
+			name = NXNetworkManager;
+			path = ../NXNetworkManager;
+			sourceTree = "<group>";
+		};
+		A4D41E49675E8BB18B98C1D7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B99F2369D93D3CCCDE371DA0 /* libPods-NXNetworkManagerDemo.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		BF4EEFEDAB769189D3FDEA6D /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				321FC49BB0DEA29EEB070815 /* Pods-NXNetworkManagerDemo.debug.xcconfig */,
+				2532000B60DAAB98FE42CEAC /* Pods-NXNetworkManagerDemo.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		88FCAA181CFF17D90089A459 /* NXNetworkManagerDemo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 88FCAA461CFF17D90089A459 /* Build configuration list for PBXNativeTarget "NXNetworkManagerDemo" */;
+			buildPhases = (
+				D8D9F66BFA50F29498120556 /* 📦 Check Pods Manifest.lock */,
+				88FCAA151CFF17D90089A459 /* Sources */,
+				88FCAA161CFF17D90089A459 /* Frameworks */,
+				88FCAA171CFF17D90089A459 /* Resources */,
+				8F6C9BDC5C5E77F7D52E7C05 /* 📦 Embed Pods Frameworks */,
+				63D339C6C1E28EB257F6F8D7 /* 📦 Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = NXNetworkManagerDemo;
+			productName = NXNetworkManagerDemo;
+			productReference = 88FCAA191CFF17D90089A459 /* NXNetworkManagerDemo.app */;
+			productType = "com.apple.product-type.application";
+		};
+		88FCAA311CFF17D90089A459 /* NXNetworkManagerDemoTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 88FCAA491CFF17D90089A459 /* Build configuration list for PBXNativeTarget "NXNetworkManagerDemoTests" */;
+			buildPhases = (
+				88FCAA2E1CFF17D90089A459 /* Sources */,
+				88FCAA2F1CFF17D90089A459 /* Frameworks */,
+				88FCAA301CFF17D90089A459 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				88FCAA341CFF17D90089A459 /* PBXTargetDependency */,
+			);
+			name = NXNetworkManagerDemoTests;
+			productName = NXNetworkManagerDemoTests;
+			productReference = 88FCAA321CFF17D90089A459 /* NXNetworkManagerDemoTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		88FCAA3C1CFF17D90089A459 /* NXNetworkManagerDemoUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 88FCAA4C1CFF17D90089A459 /* Build configuration list for PBXNativeTarget "NXNetworkManagerDemoUITests" */;
+			buildPhases = (
+				88FCAA391CFF17D90089A459 /* Sources */,
+				88FCAA3A1CFF17D90089A459 /* Frameworks */,
+				88FCAA3B1CFF17D90089A459 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				88FCAA3F1CFF17D90089A459 /* PBXTargetDependency */,
+			);
+			name = NXNetworkManagerDemoUITests;
+			productName = NXNetworkManagerDemoUITests;
+			productReference = 88FCAA3D1CFF17D90089A459 /* NXNetworkManagerDemoUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		88FCAA111CFF17D90089A459 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = nightx;
+				TargetAttributes = {
+					88FCAA181CFF17D90089A459 = {
+						CreatedOnToolsVersion = 7.3.1;
+					};
+					88FCAA311CFF17D90089A459 = {
+						CreatedOnToolsVersion = 7.3.1;
+						TestTargetID = 88FCAA181CFF17D90089A459;
+					};
+					88FCAA3C1CFF17D90089A459 = {
+						CreatedOnToolsVersion = 7.3.1;
+						TestTargetID = 88FCAA181CFF17D90089A459;
+					};
+				};
+			};
+			buildConfigurationList = 88FCAA141CFF17D90089A459 /* Build configuration list for PBXProject "NXNetworkManagerDemo" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 88FCAA101CFF17D90089A459;
+			productRefGroup = 88FCAA1A1CFF17D90089A459 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				88FCAA181CFF17D90089A459 /* NXNetworkManagerDemo */,
+				88FCAA311CFF17D90089A459 /* NXNetworkManagerDemoTests */,
+				88FCAA3C1CFF17D90089A459 /* NXNetworkManagerDemoUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		88FCAA171CFF17D90089A459 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				88FCAA2C1CFF17D90089A459 /* LaunchScreen.storyboard in Resources */,
+				88FCAA291CFF17D90089A459 /* Assets.xcassets in Resources */,
+				88FCAA271CFF17D90089A459 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		88FCAA301CFF17D90089A459 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		88FCAA3B1CFF17D90089A459 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		63D339C6C1E28EB257F6F8D7 /* 📦 Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NXNetworkManagerDemo/Pods-NXNetworkManagerDemo-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8F6C9BDC5C5E77F7D52E7C05 /* 📦 Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NXNetworkManagerDemo/Pods-NXNetworkManagerDemo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D8D9F66BFA50F29498120556 /* 📦 Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		88FCAA151CFF17D90089A459 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				88FCAA521CFF1B930089A459 /* NXNetworkManager.m in Sources */,
+				88FCAA241CFF17D90089A459 /* ViewController.m in Sources */,
+				88FCAA211CFF17D90089A459 /* AppDelegate.m in Sources */,
+				88FCAA1E1CFF17D90089A459 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		88FCAA2E1CFF17D90089A459 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				88FCAA371CFF17D90089A459 /* NXNetworkManagerDemoTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		88FCAA391CFF17D90089A459 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				88FCAA421CFF17D90089A459 /* NXNetworkManagerDemoUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		88FCAA341CFF17D90089A459 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 88FCAA181CFF17D90089A459 /* NXNetworkManagerDemo */;
+			targetProxy = 88FCAA331CFF17D90089A459 /* PBXContainerItemProxy */;
+		};
+		88FCAA3F1CFF17D90089A459 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 88FCAA181CFF17D90089A459 /* NXNetworkManagerDemo */;
+			targetProxy = 88FCAA3E1CFF17D90089A459 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		88FCAA251CFF17D90089A459 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				88FCAA261CFF17D90089A459 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		88FCAA2A1CFF17D90089A459 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				88FCAA2B1CFF17D90089A459 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		88FCAA441CFF17D90089A459 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		88FCAA451CFF17D90089A459 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		88FCAA471CFF17D90089A459 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 321FC49BB0DEA29EEB070815 /* Pods-NXNetworkManagerDemo.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = NXNetworkManagerDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = nightx.NXNetworkManagerDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		88FCAA481CFF17D90089A459 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2532000B60DAAB98FE42CEAC /* Pods-NXNetworkManagerDemo.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = NXNetworkManagerDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = nightx.NXNetworkManagerDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		88FCAA4A1CFF17D90089A459 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = NXNetworkManagerDemoTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = nightx.NXNetworkManagerDemoTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NXNetworkManagerDemo.app/NXNetworkManagerDemo";
+			};
+			name = Debug;
+		};
+		88FCAA4B1CFF17D90089A459 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = NXNetworkManagerDemoTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = nightx.NXNetworkManagerDemoTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NXNetworkManagerDemo.app/NXNetworkManagerDemo";
+			};
+			name = Release;
+		};
+		88FCAA4D1CFF17D90089A459 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = NXNetworkManagerDemoUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = nightx.NXNetworkManagerDemoUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = NXNetworkManagerDemo;
+			};
+			name = Debug;
+		};
+		88FCAA4E1CFF17D90089A459 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = NXNetworkManagerDemoUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = nightx.NXNetworkManagerDemoUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = NXNetworkManagerDemo;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		88FCAA141CFF17D90089A459 /* Build configuration list for PBXProject "NXNetworkManagerDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				88FCAA441CFF17D90089A459 /* Debug */,
+				88FCAA451CFF17D90089A459 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		88FCAA461CFF17D90089A459 /* Build configuration list for PBXNativeTarget "NXNetworkManagerDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				88FCAA471CFF17D90089A459 /* Debug */,
+				88FCAA481CFF17D90089A459 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		88FCAA491CFF17D90089A459 /* Build configuration list for PBXNativeTarget "NXNetworkManagerDemoTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				88FCAA4A1CFF17D90089A459 /* Debug */,
+				88FCAA4B1CFF17D90089A459 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		88FCAA4C1CFF17D90089A459 /* Build configuration list for PBXNativeTarget "NXNetworkManagerDemoUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				88FCAA4D1CFF17D90089A459 /* Debug */,
+				88FCAA4E1CFF17D90089A459 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 88FCAA111CFF17D90089A459 /* Project object */;
+}
