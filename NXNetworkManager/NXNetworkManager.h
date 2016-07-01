@@ -94,14 +94,14 @@ typedef void(^_Nullable NXCompletionHandler)(NSURLResponse *response, id _Nullab
  *
  *  @param completionHandler 请求完成后的回调
  */
-- (void)setCompletionHandler:(nullable NXCompletionHandler)completionHandler;
+- (void)addCompletionHandler:(nullable NXCompletionHandler)completionHandler;
 
 
 /**
  *  配置请求格式，默认为JSON。如果要求传XML或者PLIST，请在全局配置一下
  *
  *  @param requestType 请求格式，默认为JSON
- *  @param responseType 响应格式，默认为JSO，
+ *  @param responseType 响应格式，默认为JSON，
  *  @param shouldAutoEncode YES or NO,默认为NO，是否自动encode url
  */
 - (void)configRequestType:(NXRequestType)requestType

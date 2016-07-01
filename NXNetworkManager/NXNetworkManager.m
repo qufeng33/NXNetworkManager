@@ -116,7 +116,7 @@ static const int ddLogLevel = DDLogLevelDebug;
 }
 
 - (void)enableInterfaceDebug:(BOOL)isDebug{
-    _isDebug = isDebug;
+    self.isDebug = isDebug;
 }
 
 - (void)configRequestType:(NXRequestType)requestType
@@ -135,7 +135,7 @@ static const int ddLogLevel = DDLogLevelDebug;
     self.defaultParameters = parameters;
 }
 
-- (void)setCompletionHandler:(NXCompletionHandler)completionHandler{
+- (void)addCompletionHandler:(NXCompletionHandler)completionHandler{
     self.completionHandler = completionHandler;
 }
 
