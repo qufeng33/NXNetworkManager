@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
+#import "NXHTTPSessionManager.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -121,6 +122,7 @@ typedef void(^_Nullable NXCompletionHandler)(NSURLResponse *response, id _Nullab
  */
 - (void)clearCaches;
 
+
 /**
  *  取消所有的请求
  */
@@ -152,7 +154,7 @@ typedef void(^_Nullable NXCompletionHandler)(NSURLResponse *response, id _Nullab
                                parameters:(nullable NSDictionary *)parameters
                          downloadProgress:(nullable NXProgressHandler)downloadProgressHandler
                            uploadProgress:(nullable NXProgressHandler)uploadProgressHandler
-                            completeBlock:(nullable NXRequestCallBack)block;
+                          requestCallBack:(nullable NXRequestCallBack)block;
 
 
 /**
@@ -166,7 +168,7 @@ typedef void(^_Nullable NXCompletionHandler)(NSURLResponse *response, id _Nullab
  */
 - (NSURLSessionDataTask *)getWithPath:(nonnull  NSString *)path
                                params:(nullable NSDictionary *)params
-                        completeBlock:(nullable NXRequestCallBack)block;
+                      requestCallBack:(nullable NXRequestCallBack)block;
 
 
 /**
@@ -180,7 +182,7 @@ typedef void(^_Nullable NXCompletionHandler)(NSURLResponse *response, id _Nullab
  */
 - (NSURLSessionDataTask *)postWithPath:(nonnull NSString *)path
                                 params:(nullable NSDictionary *)params
-                         completeBlock:(nullable NXRequestCallBack)block;
+                       requestCallBack:(nullable NXRequestCallBack)block;
 
 /**
  *  HEAD请求接口，若不指定baseURL，可传完整的URL
@@ -193,7 +195,7 @@ typedef void(^_Nullable NXCompletionHandler)(NSURLResponse *response, id _Nullab
  */
 - (NSURLSessionDataTask *)headWithPath:(nonnull  NSString *)path
                                 params:(nullable NSDictionary *)params
-                         completeBlock:(nullable NXRequestCallBack)block;
+                       requestCallBack:(nullable NXRequestCallBack)block;
 
 /**
  *  PUT请求接口，若不指定baseURL，可传完整的URL
@@ -206,7 +208,7 @@ typedef void(^_Nullable NXCompletionHandler)(NSURLResponse *response, id _Nullab
  */
 - (NSURLSessionDataTask *)putWithPath:(nonnull  NSString *)path
                                params:(nullable NSDictionary *)params
-                        completeBlock:(nullable NXRequestCallBack)block;
+                      requestCallBack:(nullable NXRequestCallBack)block;
 
 /**
  *  PATCH请求接口，若不指定baseURL，可传完整的URL
@@ -219,7 +221,7 @@ typedef void(^_Nullable NXCompletionHandler)(NSURLResponse *response, id _Nullab
  */
 - (NSURLSessionDataTask *)patchWithPath:(nonnull  NSString *)path
                                  params:(nullable NSDictionary *)params
-                          completeBlock:(nullable NXRequestCallBack)block;
+                        requestCallBack:(nullable NXRequestCallBack)block;
 
 /**
  *  DELETE请求接口，若不指定baseURL，可传完整的URL
@@ -232,7 +234,7 @@ typedef void(^_Nullable NXCompletionHandler)(NSURLResponse *response, id _Nullab
  */
 - (NSURLSessionDataTask *)deleteWithPath:(nonnull  NSString *)path
                                   params:(nullable NSDictionary *)params
-                           completeBlock:(nullable NXRequestCallBack)block;
+                         requestCallBack:(nullable NXRequestCallBack)block;
 
 
 /**
@@ -256,7 +258,7 @@ typedef void(^_Nullable NXCompletionHandler)(NSURLResponse *response, id _Nullab
                                  mimeType:(nullable NSString *)mimeType
                                parameters:(nullable NSDictionary *)parameters
                            uploadProgress:(nullable NXProgressHandler)uploadProgressHandler
-                               completeBlock:(nullable NXRequestCallBack)block;
+                          requestCallBack:(nullable NXRequestCallBack)block;
 
 /**
  *	上传文件操作
@@ -272,8 +274,7 @@ typedef void(^_Nullable NXCompletionHandler)(NSURLResponse *response, id _Nullab
 - (NSURLSessionUploadTask *)uploadFileWithPath:(nonnull  NSString *)path
                                  uploadingFile:(nonnull  NSString *)uploadingFile
                                 uploadProgress:(nullable NXProgressHandler)uploadProgressHandler
-                                 completeBlock:(nullable NXRequestCallBack)block;
-
+                             completionHandler:(nullable void (^)(BOOL success, NSURLResponse *response, id _Nullable responseObject, NSError  * _Nullable error, NSInteger statusCode))completionHandler;
 
 
 /**
@@ -290,7 +291,7 @@ typedef void(^_Nullable NXCompletionHandler)(NSURLResponse *response, id _Nullab
 - (NSURLSessionDownloadTask *)downloadWithPath:(nonnull  NSString *)path
                                 saveToFilePath:(nullable NSString *)filePath
                               downloadProgress:(nullable NXProgressHandler)downloadProgressHandler
-                                 completeBlock:(nullable NXRequestCallBack)block;
+                               completionHandler:(nullable void (^)(BOOL success, NSURLResponse *response, id _Nullable responseObject, NSError  * _Nullable error, NSInteger statusCode))completionHandler;
 
 
 @end

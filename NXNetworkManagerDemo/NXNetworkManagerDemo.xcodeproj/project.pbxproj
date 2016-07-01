@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		6A9DCF7B738D4DA33081ADBE /* libPods-NXNetworkManagerDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B99F2369D93D3CCCDE371DA0 /* libPods-NXNetworkManagerDemo.a */; };
+		88BC41531D26361100242FC6 /* NXHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 88BC41521D26361100242FC6 /* NXHTTPSessionManager.m */; };
 		88FCAA1E1CFF17D90089A459 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 88FCAA1D1CFF17D90089A459 /* main.m */; };
 		88FCAA211CFF17D90089A459 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 88FCAA201CFF17D90089A459 /* AppDelegate.m */; };
 		88FCAA241CFF17D90089A459 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88FCAA231CFF17D90089A459 /* ViewController.m */; };
@@ -39,6 +40,8 @@
 /* Begin PBXFileReference section */
 		2532000B60DAAB98FE42CEAC /* Pods-NXNetworkManagerDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NXNetworkManagerDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-NXNetworkManagerDemo/Pods-NXNetworkManagerDemo.release.xcconfig"; sourceTree = "<group>"; };
 		321FC49BB0DEA29EEB070815 /* Pods-NXNetworkManagerDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NXNetworkManagerDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NXNetworkManagerDemo/Pods-NXNetworkManagerDemo.debug.xcconfig"; sourceTree = "<group>"; };
+		88BC41511D26361100242FC6 /* NXHTTPSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NXHTTPSessionManager.h; sourceTree = "<group>"; };
+		88BC41521D26361100242FC6 /* NXHTTPSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NXHTTPSessionManager.m; sourceTree = "<group>"; };
 		88FCAA191CFF17D90089A459 /* NXNetworkManagerDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NXNetworkManagerDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		88FCAA1D1CFF17D90089A459 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		88FCAA1F1CFF17D90089A459 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -156,6 +159,8 @@
 			children = (
 				88FCAA501CFF1B930089A459 /* NXNetworkManager.h */,
 				88FCAA511CFF1B930089A459 /* NXNetworkManager.m */,
+				88BC41511D26361100242FC6 /* NXHTTPSessionManager.h */,
+				88BC41521D26361100242FC6 /* NXHTTPSessionManager.m */,
 			);
 			name = NXNetworkManager;
 			path = ../NXNetworkManager;
@@ -360,6 +365,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				88FCAA521CFF1B930089A459 /* NXNetworkManager.m in Sources */,
+				88BC41531D26361100242FC6 /* NXHTTPSessionManager.m in Sources */,
 				88FCAA241CFF17D90089A459 /* ViewController.m in Sources */,
 				88FCAA211CFF17D90089A459 /* AppDelegate.m in Sources */,
 				88FCAA1E1CFF17D90089A459 /* main.m in Sources */,

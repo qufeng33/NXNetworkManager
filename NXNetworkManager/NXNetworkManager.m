@@ -55,7 +55,7 @@ static const int ddLogLevel = DDLogLevelDebug;
 
 - (void)defaultSetting{
     self.timeout                         = 60;
-    self.isDebug                         = YES;
+    self.isDebug                         = NO;
     self.requestType                     = NXRequestTypeJSON;
     self.responseType                    = NXResponseTypeJSON;
     self.shouldAutoEncode                = NO;
@@ -164,12 +164,12 @@ static const int ddLogLevel = DDLogLevelDebug;
 }
 
 
-- (AFHTTPSessionManager *)manager {
-    AFHTTPSessionManager *manager = nil;;
+- (NXHTTPSessionManager *)manager {
+    NXHTTPSessionManager *manager = nil;;
     if (self.baseURL != nil) {
-        manager = [[AFHTTPSessionManager alloc] initWithBaseURL:[NSURL URLWithString:self.baseURL]];
+        manager = [[NXHTTPSessionManager alloc] initWithBaseURL:[NSURL URLWithString:self.baseURL]];
     } else {
-        manager = [AFHTTPSessionManager manager];
+        manager = [NXHTTPSessionManager manager];
     }
     
     switch (self.requestType) {
@@ -227,7 +227,7 @@ static const int ddLogLevel = DDLogLevelDebug;
                                parameters:(NSDictionary *)parameters
                          downloadProgress:(NXProgressHandler)downloadProgressHandler
                            uploadProgress:(NXProgressHandler)uploadProgressHandler
-                            completeBlock:(NXRequestCallBack)block{
+                          requestCallBack:(NXRequestCallBack)block{
 
     if (![self isURL:path]) {
         return nil;
@@ -246,7 +246,7 @@ static const int ddLogLevel = DDLogLevelDebug;
         parameters = (NSDictionary *)[result mutableCopy];
     }
     
-    AFHTTPSessionManager *manager = [self manager];
+    NXHTTPSessionManager *manager = [self manager];
     
     NSURLSessionDataTask *sessionTask = nil;
     @WeakObj(self);
@@ -257,14 +257,15 @@ static const int ddLogLevel = DDLogLevelDebug;
                 if (downloadProgressHandler) {
                     downloadProgressHandler(downloadProgress);
                 }
-            } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+            } requestCallBack:^(BOOL success, NSURLSessionTask * _Nullable task, id  _Nullable responseObject, NSError * _Nullable error, NSInteger statusCode) {
                 @StrongObj(self);
-                [self successHandlerWithSessionTask:task responseObject:responseObject url:path params:parameters requestBlock:block];
-            } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-                @StrongObj(self);
-                [self failureHandlerWithSessionTask:task error:error url:path params:parameters requestBlock:block];
+                
+                [self requestCompletionWithSessionTask:task responseObject:responseObject error:error url:path params:parameters];
+                
+                if (block) {
+                    block(success,task,responseObject,error,statusCode);
+                }
             }];
-           
             break;
         }
         case POST: {
@@ -272,52 +273,62 @@ static const int ddLogLevel = DDLogLevelDebug;
                 if (uploadProgressHandler) {
                     uploadProgressHandler(uploadProgress);
                 }
-            } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+            } requestCallBack:^(BOOL success, NSURLSessionTask * _Nullable task, id  _Nullable responseObject, NSError * _Nullable error, NSInteger statusCode) {
                 @StrongObj(self);
-                [self successHandlerWithSessionTask:task responseObject:responseObject url:path params:parameters requestBlock:block];
-            } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-                @StrongObj(self);
-                [self failureHandlerWithSessionTask:task error:error url:path params:parameters requestBlock:block];
+                
+                [self requestCompletionWithSessionTask:task responseObject:responseObject error:error url:path params:parameters];
+                
+                if (block) {
+                    block(success,task,responseObject,error,statusCode);
+                }
             }];
             break;
         }
         case HEAD: {
-            sessionTask = [manager HEAD:path parameters:parameters success:^(NSURLSessionDataTask * _Nonnull task) {
+            sessionTask = [manager HEAD:path parameters:parameters requestCallBack:^(BOOL success, NSURLSessionTask * _Nullable task, id  _Nullable responseObject, NSError * _Nullable error, NSInteger statusCode) {
                 @StrongObj(self);
-                [self successHandlerWithSessionTask:task responseObject:nil url:path params:parameters requestBlock:block];
-            } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-                @StrongObj(self);
-                [self failureHandlerWithSessionTask:task error:error url:path params:parameters requestBlock:block];
+                
+                [self requestCompletionWithSessionTask:task responseObject:responseObject error:error url:path params:parameters];
+                
+                if (block) {
+                    block(success,task,responseObject,error,statusCode);
+                }
             }];
             break;
         }
         case PUT: {
-            sessionTask = [manager PUT:path parameters:parameters success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+            sessionTask = [manager PUT:path parameters:parameters requestCallBack:^(BOOL success, NSURLSessionTask * _Nullable task, id  _Nullable responseObject, NSError * _Nullable error, NSInteger statusCode) {
                 @StrongObj(self);
-                [self successHandlerWithSessionTask:task responseObject:responseObject url:path params:parameters requestBlock:block];
-            } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-                @StrongObj(self);
-                [self failureHandlerWithSessionTask:task error:error url:path params:parameters requestBlock:block];
+                
+                [self requestCompletionWithSessionTask:task responseObject:responseObject error:error url:path params:parameters];
+                
+                if (block) {
+                    block(success,task,responseObject,error,statusCode);
+                }
             }];
             break;
         }
         case PATCH: {
-            sessionTask = [manager PATCH:path parameters:parameters success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+            sessionTask = [manager PATCH:path parameters:parameters requestCallBack:^(BOOL success, NSURLSessionTask * _Nullable task, id  _Nullable responseObject, NSError * _Nullable error, NSInteger statusCode) {
                 @StrongObj(self);
-                [self successHandlerWithSessionTask:task responseObject:responseObject url:path params:parameters requestBlock:block];
-            } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-                @StrongObj(self);
-                [self failureHandlerWithSessionTask:task error:error url:path params:parameters requestBlock:block];
+                
+                [self requestCompletionWithSessionTask:task responseObject:responseObject error:error url:path params:parameters];
+                
+                if (block) {
+                    block(success,task,responseObject,error,statusCode);
+                }
             }];
             break;
         }
         case DELETE: {
-            sessionTask = [manager DELETE:path parameters:parameters success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+            sessionTask = [manager DELETE:path parameters:parameters requestCallBack:^(BOOL success, NSURLSessionTask * _Nullable task, id  _Nullable responseObject, NSError * _Nullable error, NSInteger statusCode) {
                 @StrongObj(self);
-                [self successHandlerWithSessionTask:task responseObject:responseObject url:path params:parameters requestBlock:block];
-            } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-                @StrongObj(self);
-                [self failureHandlerWithSessionTask:task error:error url:path params:parameters requestBlock:block];
+                
+                [self requestCompletionWithSessionTask:task responseObject:responseObject error:error url:path params:parameters];
+                
+                if (block) {
+                    block(success,task,responseObject,error,statusCode);
+                }
             }];
             break;
         }
@@ -330,28 +341,28 @@ static const int ddLogLevel = DDLogLevelDebug;
     return sessionTask;
 }
 
-- (NSURLSessionDataTask *)getWithPath:(NSString *)path params:(NSDictionary *)params completeBlock:(NXRequestCallBack)block{
-    return [self requestWithPath:path requestMethod:GET parameters:params downloadProgress:nil uploadProgress:nil completeBlock:block];
+- (NSURLSessionDataTask *)getWithPath:(NSString *)path params:(NSDictionary *)params requestCallBack:(NXRequestCallBack)block{
+    return [self requestWithPath:path requestMethod:GET parameters:params downloadProgress:nil uploadProgress:nil requestCallBack:block];
 }
 
-- (NSURLSessionDataTask *)postWithPath:(NSString *)path params:(NSDictionary *)params completeBlock:(NXRequestCallBack)block{
-    return [self requestWithPath:path requestMethod:POST parameters:params downloadProgress:nil uploadProgress:nil completeBlock:block];
+- (NSURLSessionDataTask *)postWithPath:(NSString *)path params:(NSDictionary *)params requestCallBack:(NXRequestCallBack)block{
+    return [self requestWithPath:path requestMethod:POST parameters:params downloadProgress:nil uploadProgress:nil requestCallBack:block];
 }
 
-- (NSURLSessionDataTask *)headWithPath:(NSString *)path params:(NSDictionary *)params completeBlock:(NXRequestCallBack)block{
-    return [self requestWithPath:path requestMethod:HEAD parameters:params downloadProgress:nil uploadProgress:nil completeBlock:block];
+- (NSURLSessionDataTask *)headWithPath:(NSString *)path params:(NSDictionary *)params requestCallBack:(NXRequestCallBack)block{
+    return [self requestWithPath:path requestMethod:HEAD parameters:params downloadProgress:nil uploadProgress:nil requestCallBack:block];
 }
 
-- (NSURLSessionDataTask *)putWithPath:(NSString *)path params:(NSDictionary *)params completeBlock:(NXRequestCallBack)block{
-    return [self requestWithPath:path requestMethod:PUT parameters:params downloadProgress:nil uploadProgress:nil completeBlock:block];
+- (NSURLSessionDataTask *)putWithPath:(NSString *)path params:(NSDictionary *)params requestCallBack:(NXRequestCallBack)block{
+    return [self requestWithPath:path requestMethod:PUT parameters:params downloadProgress:nil uploadProgress:nil requestCallBack:block];
 }
 
-- (NSURLSessionDataTask *)patchWithPath:(NSString *)path params:(NSDictionary *)params completeBlock:(NXRequestCallBack)block{
-    return [self requestWithPath:path requestMethod:PATCH parameters:params downloadProgress:nil uploadProgress:nil completeBlock:block];
+- (NSURLSessionDataTask *)patchWithPath:(NSString *)path params:(NSDictionary *)params requestCallBack:(NXRequestCallBack)block{
+    return [self requestWithPath:path requestMethod:PATCH parameters:params downloadProgress:nil uploadProgress:nil requestCallBack:block];
 }
 
-- (NSURLSessionDataTask *)deleteWithPath:(NSString *)path params:(NSDictionary *)params completeBlock:(NXRequestCallBack)block{
-    return [self requestWithPath:path requestMethod:DELETE parameters:params downloadProgress:nil uploadProgress:nil completeBlock:block];
+- (NSURLSessionDataTask *)deleteWithPath:(NSString *)path params:(NSDictionary *)params requestCallBack:(NXRequestCallBack)block{
+    return [self requestWithPath:path requestMethod:DELETE parameters:params downloadProgress:nil uploadProgress:nil requestCallBack:block];
 }
 
 - (NSURLSessionDataTask *)uploadWithImage:(UIImage *)image
@@ -361,7 +372,7 @@ static const int ddLogLevel = DDLogLevelDebug;
                                  mimeType:(NSString *)mimeType
                                parameters:(NSDictionary *)parameters
                            uploadProgress:(NXProgressHandler)uploadProgressHandler
-                            completeBlock:(NXRequestCallBack)block{
+                          requestCallBack:(NXRequestCallBack)block{
     
     if (![self isURL:path]) {
         return nil;
@@ -371,7 +382,7 @@ static const int ddLogLevel = DDLogLevelDebug;
         path = [self encodeURL:path];
     }
     
-    AFHTTPSessionManager *manager = [self manager];
+    NXHTTPSessionManager *manager = [self manager];
     NSURLSessionDataTask *sessionTask = nil;
     
     @WeakObj(self);
@@ -392,12 +403,14 @@ static const int ddLogLevel = DDLogLevelDebug;
         if (uploadProgressHandler) {
             uploadProgressHandler(uploadProgress);
         }
-    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+    } requestCallBack:^(BOOL success, NSURLSessionTask * _Nullable task, id  _Nullable responseObject, NSError * _Nullable error, NSInteger statusCode) {
         @StrongObj(self);
-        [self successHandlerWithSessionTask:task responseObject:responseObject url:path params:parameters requestBlock:block];
-    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        @StrongObj(self);
-        [self failureHandlerWithSessionTask:task error:error url:path params:parameters requestBlock:block];
+        
+        [self requestCompletionWithSessionTask:task responseObject:responseObject error:error url:path params:parameters];
+        
+        if (block) {
+            block(success,task,responseObject,error,statusCode);
+        }
     }];
     
     [sessionTask resume];
@@ -411,7 +424,7 @@ static const int ddLogLevel = DDLogLevelDebug;
 - (NSURLSessionUploadTask *)uploadFileWithPath:(NSString *)path
                                  uploadingFile:(NSString *)uploadingFile
                                 uploadProgress:(NXProgressHandler)uploadProgressHandler
-                                 completeBlock:(NXRequestCallBack)block{
+                             completionHandler:(void (^)(BOOL, NSURLResponse * _Nonnull, id _Nullable, NSError * _Nullable, NSInteger))completionHandler{
     if ([NSURL URLWithString:uploadingFile] == nil) {
         DDLogError(@"uploadingFile无效，无法生成URL。请检查待上传文件是否存在");
         return nil;
@@ -429,7 +442,7 @@ static const int ddLogLevel = DDLogLevelDebug;
         return nil;
     }
     
-    AFHTTPSessionManager *manager = [self manager];
+    NXHTTPSessionManager *manager = [self manager];
     NSURLRequest *request = [NSURLRequest requestWithURL:uploadURL];
     NSURLSessionUploadTask *sessionTask = nil;
     
@@ -440,10 +453,11 @@ static const int ddLogLevel = DDLogLevelDebug;
         }
     } completionHandler:^(NSURLResponse * _Nonnull response, id  _Nullable responseObject, NSError * _Nullable error) {
         @StrongObj(self);
-        if (error) {
-        [self successHandlerWithSessionTask:sessionTask responseObject:responseObject url:path params:nil requestBlock:block];
-        }else{
-        [self failureHandlerWithSessionTask:sessionTask error:error url:path params:nil requestBlock:block];
+        [self requestCompletionWithSessionTask:sessionTask responseObject:responseObject error:error url:path params:nil];
+        
+        NSInteger statusCode = [(NSHTTPURLResponse *)response statusCode];
+        if (completionHandler) {
+            completionHandler(error?NO:YES,response,responseObject,error,statusCode);
         }
     }];
     
@@ -455,14 +469,14 @@ static const int ddLogLevel = DDLogLevelDebug;
 }
 
 - (NSURLSessionDownloadTask *)downloadWithPath:(NSString *)path
-                            saveToFilePath:(NSString *)filePath
-                          downloadProgress:(NXProgressHandler)downloadProgressHandler
-                             completeBlock:(NXRequestCallBack)block{
+                                saveToFilePath:(NSString *)filePath
+                              downloadProgress:(NXProgressHandler)downloadProgressHandler
+                             completionHandler:(void (^)(BOOL, NSURLResponse * _Nonnull, id _Nullable, NSError * _Nullable, NSInteger))completionHandler{
     if (![self isURL:path]) {
         return nil;
     }
     
-    AFHTTPSessionManager *manager = [self manager];
+    NXHTTPSessionManager *manager = [self manager];
     NSURLRequest *downloadRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:path]];
     NSURLSessionDownloadTask *sessionTask = nil;
     
@@ -475,10 +489,11 @@ static const int ddLogLevel = DDLogLevelDebug;
         return [NSURL URLWithString:filePath];
     } completionHandler:^(NSURLResponse * _Nonnull response, NSURL * _Nullable filePath, NSError * _Nullable error) {
         @StrongObj(self);
-        if (error) {
-            [self successHandlerWithSessionTask:sessionTask responseObject:filePath url:path params:nil requestBlock:block];
-        }else{
-            [self failureHandlerWithSessionTask:sessionTask error:error url:path params:nil requestBlock:block];
+        [self requestCompletionWithSessionTask:sessionTask responseObject:filePath error:error url:path params:nil];
+        
+        NSInteger statusCode = [(NSHTTPURLResponse *)response statusCode];
+        if (completionHandler) {
+            completionHandler(error?NO:YES,response,filePath,error,statusCode);
         }
     }];
     
@@ -491,46 +506,27 @@ static const int ddLogLevel = DDLogLevelDebug;
     
 }
 
-- (void)successHandlerWithSessionTask:(NSURLSessionTask *)task
-                       responseObject:(id)responseObject
-                                  url:(NSString *)url
-                               params:(NSDictionary *)params
-                         requestBlock:(NXRequestCallBack)block{
+- (void)requestCompletionWithSessionTask:(NSURLSessionTask *)task
+                          responseObject:(id)responseObject
+                                   error:(NSError *)error
+                                     url:(NSString *)url
+                                  params:(NSDictionary *)params{
     [self.allTasks removeObject:task];
     if (self.isDebug) {
-        [self logWithSuccessResponseObject:responseObject url:url params:params];
+        if (error) {
+            [self logWithFailError:error url:url params:params];
+        }else{
+            [self logWithSuccessResponseObject:responseObject url:url params:params];
+        }
     }
+    
     if (self.completionHandler) {
-        self.completionHandler(task.response,responseObject,nil);
-    }
-    if (block) {
-        NSInteger statusCode = [(NSHTTPURLResponse *)task.response statusCode];
-        block(YES,task,responseObject,nil,statusCode);
+        self.completionHandler(task.response,responseObject,error);
     }
 }
-
-- (void)failureHandlerWithSessionTask:(NSURLSessionTask *)task
-                                error:(NSError *)error
-                                  url:(NSString *)url
-                               params:(NSDictionary *)params
-                         requestBlock:(NXRequestCallBack)block{
-    [self.allTasks removeObject:task];
-    if (self.isDebug) {
-        [self logWithFailError:error url:url params:params];
-    }
-    if (self.completionHandler) {
-        self.completionHandler(task.response,nil,error);
-    }
-    if (block) {
-        NSInteger statusCode = [(NSHTTPURLResponse *)task.response statusCode];
-        block(NO,task,nil,error,statusCode);
-    }
-}
-
 
 - (void)logWithSuccessResponseObject:(id)responseObject url:(NSString *)url params:(NSDictionary *)params {
-    DDLogInfo(@"\n");
-    DDLogInfo(@"\nRequest success, URL: %@\n params:%@\n response:%@\n\n",url,params,responseObject);
+    DDLogInfo(@"\n\nRequest success, URL: %@\n params:%@\n response:%@\n\n",url,params,responseObject);
 }
 
 - (void)logWithFailError:(NSError *)error url:(NSString *)url params:(id)params {
@@ -540,11 +536,10 @@ static const int ddLogLevel = DDLogLevelDebug;
         params = @"";
     }
     
-    DDLogError(@"\n");
     if ([error code] == NSURLErrorCancelled) {
-        DDLogError(@"\nRequest was canceled mannully, URL: %@ %@%@\n\n",url,format,params);
+        DDLogError(@"\n\nRequest was canceled mannully, URL: %@ %@%@\n\n",url,format,params);
     } else {
-        DDLogError(@"\nRequest error, URL: %@ %@%@\n errorInfos:%@\n\n",url,format,params,[error localizedDescription]);
+        DDLogError(@"\n\nRequest error, URL: %@ %@%@\n errorInfos:%@\n\n",url,format,params,[error localizedDescription]);
     }
 }
 
