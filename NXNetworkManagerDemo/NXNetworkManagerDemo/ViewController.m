@@ -19,6 +19,7 @@
     [super viewDidLoad];
     
     [[NXNetworkManager sharedManager] updateBaseUrl:@"https://www.v2ex.com"];
+    [[NXNetworkManager sharedManager] configRequestType:NXRequestTypeJSON responseType:NXResponseTypeJSON shouldAutoEncodeUrl:YES];
     
     [[NXNetworkManager sharedManager] getWithPath:@"/api/topics/latest.json" params:nil requestCallBack:^(BOOL success, NSURLSessionTask * _Nonnull task, id  _Nullable responseObject, NSError * _Nullable error, NSInteger statusCode) {
         NSLog(@"\nresponseObject :%@\n",responseObject);

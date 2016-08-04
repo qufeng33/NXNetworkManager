@@ -78,11 +78,11 @@
         NSInteger statusCode = [(NSHTTPURLResponse *)response statusCode];
         if (error) {
             if (requestCallBack) {
-                requestCallBack(NO, task, response, error, statusCode);
+                requestCallBack(NO, task, responseObject, error, statusCode);
             }
         } else {
             if (requestCallBack) {
-                requestCallBack(YES, task, response, nil, statusCode);
+                requestCallBack(YES, task, responseObject, nil, statusCode);
             }
         }
     }];
