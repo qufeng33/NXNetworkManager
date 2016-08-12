@@ -45,8 +45,9 @@ typedef void(^ _Nullable NXProgressHandler)(NSProgress * _Nonnull progress);
 typedef void(^_Nullable NXCompletionHandler)(NSURLResponse *response, id _Nullable responseObject,  NSError * _Nullable error);
 @interface NXNetworkManager : NSObject
 
-@property (strong, nonatomic, readonly) NSString        *baseURL;
-@property (assign, nonatomic, readonly) NXNetworkStatus networkStatus;
+@property (strong, nonatomic, readonly ) NSString        *baseURL;
+@property (assign, nonatomic, readonly ) NXNetworkStatus networkStatus;
+@property (assign, nonatomic, readwrite) BOOL            removesKeysWithNullValues;
 
 
 /**

@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
 s.name         = 'NXNetworkManager'
-s.version      = '0.1.3'
+s.version      = '0.1.4'
 s.summary      = 'NXNetworkManager base on AFNetwroking'
 s.homepage     = 'https://github.com/qufeng33/NXNetworkManager'
 s.license      = 'MIT'

@@ -59,6 +59,7 @@ static const int ddLogLevel = DDLogLevelDebug;
     self.requestType                     = NXRequestTypeJSON;
     self.responseType                    = NXResponseTypeJSON;
     self.shouldAutoEncode                = NO;
+    self.removesKeysWithNullValues       = NO;
     self.allTasks                        = [[NSMutableArray alloc] init];
 
     [self startMonitoringNetwork];
@@ -186,6 +187,7 @@ static const int ddLogLevel = DDLogLevelDebug;
     switch (self.responseType) {
         case NXResponseTypeJSON: {
             manager.responseSerializer = [AFJSONResponseSerializer serializer];
+            [(AFJSONResponseSerializer *)manager.responseSerializer setRemovesKeysWithNullValues:self.removesKeysWithNullValues];
             break;
         }
         case NXResponseTypeXML: {
