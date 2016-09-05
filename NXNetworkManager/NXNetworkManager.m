@@ -166,7 +166,7 @@ static const int ddLogLevel = DDLogLevelDebug;
 
 
 - (NXHTTPSessionManager *)manager {
-    NXHTTPSessionManager *manager = nil;;
+    NXHTTPSessionManager *manager = nil;
     if (self.baseURL != nil) {
         manager = [[NXHTTPSessionManager alloc] initWithBaseURL:[NSURL URLWithString:self.baseURL]];
     } else {
@@ -547,16 +547,7 @@ static const int ddLogLevel = DDLogLevelDebug;
 
 
 - (NSString *)encodeURL:(NSString *)url {
-    NSString *newString =
-    CFBridgingRelease(CFURLCreateStringByAddingPercentEscapes(kCFAllocatorDefault,
-                                                              (CFStringRef)url,
-                                                              NULL,
-                                                              CFSTR(":/?#[]@!$ &'()*+,;=\"<>%{}|\\^~`"), CFStringConvertNSStringEncodingToEncoding(NSUTF8StringEncoding)));
-    if (newString) {
-        return newString;
-    }
-    
-    return url;
+    return [url stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
 }
 
 - (BOOL)isURL:(NSString *)urlString{
