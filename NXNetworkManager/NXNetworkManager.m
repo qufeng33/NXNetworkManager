@@ -208,13 +208,18 @@ static const int ddLogLevel = DDLogLevelDebug;
         }
     }
     
-    manager.responseSerializer.acceptableContentTypes = [NSSet setWithArray:@[@"application/json",
-                                                                              @"text/html",
-                                                                              @"text/json",
-                                                                              @"text/plain",
-                                                                              @"text/javascript",
-                                                                              @"text/xml",
-                                                                              @"image/*"]];
+    NSSet *acceptableContentTypes = [NSSet setWithArray:@[@"application/json",
+                                                          @"text/html",
+                                                          @"text/json",
+                                                          @"text/plain",
+                                                          @"text/javascript",
+                                                          @"text/xml",
+                                                          @"image/*"]];
+    manager.responseSerializer.acceptableContentTypes = acceptableContentTypes;
+    
+    if (self.securityPolicy) {
+        manager.securityPolicy = self.securityPolicy;
+    }
     
     manager.requestSerializer.timeoutInterval = self.timeout;
     
